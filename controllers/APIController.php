@@ -12,7 +12,7 @@ class APIController extends ActiveRecord {
     // Traer los servicios datos de la base de datos
     public static function index() {
         $servicios = Servicio::all();
-        echo json_encode($servicios);
+        echo json_encode($servicios, JSON_UNESCAPED_UNICODE);
     }
 
     // Guardar los datos en la base de datos
@@ -33,7 +33,7 @@ class APIController extends ActiveRecord {
             ];
             // Le pasamos a citaServicio los datos
             $citaServicio = new CitaServicio($args);
-            // Guardamos en la tabla de CitasServicios los datos
+            // Guardamos en la tabla de citasservicios los datos
             $citaServicio->guardar();
         }
         
