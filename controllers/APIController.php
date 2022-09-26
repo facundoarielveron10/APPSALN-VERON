@@ -33,7 +33,7 @@ class APIController extends ActiveRecord {
             ];
             // Le pasamos a citaServicio los datos
             $citaServicio = new CitaServicio($args);
-            // Guardamos en la tabla de citasservicios los datos
+            // Guardamos en la tabla de citasServicios los datos
             $citaServicio->guardar();
         }
         

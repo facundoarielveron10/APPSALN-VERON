@@ -4,7 +4,7 @@ namespace Model;
 
 class AdminCita extends ActiveRecord {
     // Base de Datos
-    protected static $tabla = 'citasservicios';
+    protected static $tabla = 'citasServicios';
     protected static $columnasDB = ['id', 'hora', 'cliente', 'email', 'telefono', 'servicio', 'precio'];
 
     // Atributos
