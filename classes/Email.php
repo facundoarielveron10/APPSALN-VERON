@@ -54,14 +54,13 @@ class Email {
         // Crear el objeto de email
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
+        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '4edaf39b9b83d2';
-        $mail->Password = 'fbcf5b2fd609fe';
+        $mail->Port = 587;
+        $mail->Username = 'facundoarielveron10@gmail.com';
+        $mail->Password = 'cjyfxmnceuqiamzp';
 
-        $mail->setFrom('cuentas@appsalon.com');
-        $mail->addAddress('cuentas@appsalon.com', 'AppSalon.com');
+        $mail->addAddress($this->email);
         $mail->Subject = 'Restablece tu contraseña';
 
         // Set HTML
