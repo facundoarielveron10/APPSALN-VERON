@@ -42,7 +42,7 @@ class Email {
         $contenido = "<html>";
         $contenido .= "<p><strong>Hola " . $this->nombre . " " . $this->apellido . "</strong> Has creado tu cuenta en AppSalon,
         solo debes confirmarla presionando el siguente enlace</p>";
-        $contenido .= "<p>Presiona aqui: <a href='https://appsalon-veron.herokuapp.com/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a> </p>";
+        $contenido .= "<p>Presiona aqui: <a href='https://". $_SERVER["HTTP_HOST"] . "/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a> </p>";
         $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar el mensaje</p>";
         $contenido .= "</html>";
         $mail->Body = $contenido;
@@ -71,7 +71,7 @@ class Email {
         
         $contenido = "<html>";
         $contenido .= "<p><strong>Hola" . $this->nombre . " " . $this->apellido . "</strong> has solicitado reestablecer tu contraseña, sigue el siguiente enlace para hacerlo.</p>";
-        $contenido .= "<p>Presiona aqui: <a href='https://appsalon-veron.herokuapp.com/reestablecer?token=" . $this->token . "'>Reestablecer Contraseña</a> </p>";
+        $contenido .= "<p>Presiona aqui: <a href='https://". $_SERVER["HTTP_HOST"] . "/reestablecer?token=" . $this->token . "'>Reestablecer Contraseña</a> </p>";
         $contenido .= "<p>Si tu no solicitaste esta cuenta, puedes ignorar el mensaje</p>";
         $contenido .= "</html>";
         $mail->Body = $contenido;
