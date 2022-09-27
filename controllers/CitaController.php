@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Model\Cita;
 use MVC\Router;
 
 class CitaController {
@@ -10,10 +11,26 @@ class CitaController {
         // Revisamos si el usuario esta autenticado
         isAuth();
 
+        $id = $_SESSION['id'];
+
+        // Consultar la base de datos
+        $consulta = "SELECT * FROM citas WHERE usuarioId = ${id}";
+        $citas = Cita::SQL($consulta);
+        
+        // Formatear la fecha
+        foreach( $citas as $cita ):
+            $fecha = $cita->fecha;
+            setlocale(LC_TIME, "spanish");
+            $fecha = strftime("%A, %d de %B de %Y");
+            $fecha = mb_strtoupper($fecha);
+            $cita->fecha = $fecha;
+        endforeach;
+
         // Renderiza la vista
         $router->render('cita/index', [
             'nombre' => $_SESSION["nombre"],
-            'id' => $_SESSION['id']
+            'id' => $id,
+            'citas' => $citas
         ]);
     }
 }

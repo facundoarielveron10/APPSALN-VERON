@@ -2,6 +2,21 @@
 <h1 class="nombre-pagina">Crear Nueva Cita</h1>
 <!-- Descripcion del Formulario -->
 <p class="descripcion-pagina">Elige tus servicios y coloca tus datos</p>
+<!-- Boton de mis citas -->
+<div class="cita">
+    <button class="boton" id="botonCita" onclick="mostrarCitas()">Mis Citas</button>
+</div>
+<!-- Citas -->
+<div id="citaUsuario" class="ocultar">
+    <?php foreach( $citas as $cita ):?>
+        <ul class="citas">
+            <li>
+                <p>Fecha: <span><?php echo $cita->fecha ?></span></p>
+                <p>Hora: <span><?php echo $cita->hora ?></span></p>
+            </li>
+        </ul>
+    <?php endforeach;?>
+</div>
 <!-- Perfil -->
 <?php include_once __DIR__ . "/../templates/barra.php" ?>
 <!-- Formulario -->
