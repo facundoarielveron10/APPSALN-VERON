@@ -15,6 +15,12 @@ class APIController extends ActiveRecord {
         echo json_encode($servicios, JSON_UNESCAPED_UNICODE);
     }
 
+    // Traer los servicios de la base de datos
+    public static function citas() {
+        $citas = Cita::all();
+        echo json_encode($citas, JSON_UNESCAPED_UNICODE);
+    }
+
     // Guardar los datos en la base de datos
     public static function almacenar() {
         // Almacena la Cita y devuelve el ID
@@ -38,7 +44,9 @@ class APIController extends ActiveRecord {
         }
         
         // Retornamos una resultado
-        echo json_encode(['resultado' => $resultado]);
+        echo json_encode([
+            'resultado' => $resultado
+        ]);
     }
 
     // Eliminar una cita

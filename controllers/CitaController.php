@@ -16,12 +16,12 @@ class CitaController {
         // Consultar la base de datos
         $consulta = "SELECT * FROM citas WHERE usuarioId = ${id}";
         $citas = Cita::SQL($consulta);
-        
+        $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+        $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         // Formatear la fecha
         foreach( $citas as $cita ):
             $fecha = $cita->fecha;
-            setlocale(LC_TIME, "spanish");
-            $fecha = strftime("%A, %d de %B de %Y");
+            $fecha = $dias[date('w')] . ", " . date('d') . " de " . $meses[date('n')-1] . " del " . date('Y');
             $fecha = mb_strtoupper($fecha);
             $cita->fecha = $fecha;
         endforeach;
